@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 ### Configuring Environment Variables
 
-Configure your environment variables by creating a `.env` file as shown in `.env.example` in the `Chitros/` directory -
+Configure your environment variables by creating a `.env` file as shown in `.env.example` in the `FastAPI-TODO/` directory -
 
 #### Database variables
 - `DATABASE_USERNAME` - Database username.

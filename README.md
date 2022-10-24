@@ -5,6 +5,8 @@
 ## Start contributing
 You can contribute to this project under [Hacktoberfest 2022](https://hacktoberfest.com)  
 Read the [Contributing Guidelines](CONTRIBUTING.md) and get started!
+![image](https://user-images.githubusercontent.com/88224695/197454590-58674582-4acc-47b4-916b-9c3b92b410e3.png)
+
 
 <br>
 

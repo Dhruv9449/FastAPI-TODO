@@ -1,2 +1,3 @@
 .env
 Todo.db
+__pycache__

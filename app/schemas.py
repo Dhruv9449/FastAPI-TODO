@@ -2,7 +2,6 @@
 
 # Import 
 from typing import Optional
-from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -12,6 +11,7 @@ class TodoItemResponse(BaseModel):
     Response schema for a todo item.
     """
     id: int
+    
 
 
 # Request schemas
@@ -19,8 +19,15 @@ class TodoItemCreate(BaseModel):
     """
     Request schema for creating a todo item.
     """
-    id: int
-
+    id: Optional[int]
+    title: str
+    description: str
+    """  
+    created_at: Optional[datetime]
+    updated_at: Optional[datetime] 
+    """
+    completed: Optional[bool] = False
+    
 
 class TodoItemUpdate(BaseModel):
     """

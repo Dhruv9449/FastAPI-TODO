@@ -1,10 +1,12 @@
 """ Module handling routes for the application """
 
 # Imports
+from email.message import Message
 from operator import itemgetter
 from typing import List
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
+from fastapi.responses import JSONResponse
 
 from app import schemas
 from app.db import get_db
@@ -27,14 +29,12 @@ async def get_todo_items(db: Session = Depends(get_db)):
     print(result)
     return result
 
-
-@router.get("/todo-items/{todo_item_id}", response_model=schemas.TodoItemResponse)
-async def get_todo_item(todo_item_id: int, db: Session = Depends(get_db)):
-    """
-    Route to get a specific todo item from the database.
-    """
-    pass
-
+@router.get("/todo-items/{todo_item_id}",response_model=schemas.TodoItemResponse)
+async def get_todo_items(todo_item_id: int, db: Session = Depends(get_db)):
+    query = db.query(TodoItem).filter(TodoItem.id==todo_item_id).first()
+    if query:
+            return {"id":int(query.__getattribute__("id"))}
+    return JSONResponse(status_code=404,content={"message":f"id: {todo_item_id}, not found"})
 
 @router.post("/todo-items/", response_model=schemas.TodoItemResponse, status_code=status.HTTP_201_CREATED)
 async def create_todo_item(todo_item: schemas.TodoItemCreate, db: Session = Depends(get_db)):

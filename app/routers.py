@@ -1,7 +1,6 @@
 """ Module handling routes for the application """
 
 # Imports
-from email.message import Message
 from operator import itemgetter
 from typing import List
 from fastapi import APIRouter, Depends, status
